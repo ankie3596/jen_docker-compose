@@ -1,0 +1,14 @@
+node {
+  stage('get'){
+    git ''
+   }
+  stage('build'){
+    sh 'docker-compose build'
+   }
+  stage('deploy'){
+    docker.withRegistry('https://registry.hub.docker.com','DockerId'){
+    def customImage = docker.build('ankimittal/hello')
+    customImage.push()
+   }
+ }
+}
