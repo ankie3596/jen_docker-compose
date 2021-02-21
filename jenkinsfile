@@ -1,6 +1,6 @@
 node {
   stage('get'){
-    git ''
+    git 'https://github.com/ankie3596/jen_docker-compose.git'
    }
   stage('build'){
     sh 'docker-compose build'
